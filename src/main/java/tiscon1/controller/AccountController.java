@@ -34,6 +34,7 @@ public class AccountController {
         return new AccountRegisterForm();
     }
 
+    /* do method when matching value url */
     @RequestMapping(value="/login")
     public String login(@Validated LoginForm form, BindingResult bindingResult, HttpSession session) {
         Customer customer = customerRepository.findOne(Specifications
@@ -56,17 +57,21 @@ public class AccountController {
      * @param session
      * @return
      */
+
+    /* do method when matching value url */
     @RequestMapping(value="/logout")
     public String logout(HttpSession session) {
         session.removeAttribute("principal");
         return "redirect:/";
     }
 
+    /* do method when matching value url */
     @RequestMapping(value="/register", method=RequestMethod.GET)
     public String newAccountOrSignIn() {
         return "newAccountOrSignIn";
     }
 
+    /* do method when matching value url */
     @RequestMapping(value="/register", method=RequestMethod.POST)
     public String register(@Validated AccountRegisterForm form, BindingResult bindingResult
     , HttpSession session) {
@@ -80,6 +85,7 @@ public class AccountController {
         return "redirect:/my/account?id=" + customer.getId();
     }
 
+    /* do method when matching value url */
     @RequestMapping(value="/my/account", method=RequestMethod.GET)
     public String editAccount(@RequestParam("id") Long customerId,
                          @ModelAttribute("principal") UserPrincipal principal,
@@ -96,16 +102,19 @@ public class AccountController {
         }
     }
 
+    /* do method when matching value url */
     @RequestMapping(value="/my/account", method=RequestMethod.POST)
     public String saveAccount(@Validated AccountForm form, BindingResult bindingResult) {
         return "customerAccount";
     }
 
+    /* do method when matching value url */
     @RequestMapping("/my/orders")
     public String showOrders(@ModelAttribute("principal") UserPrincipal principal) {
         return "customerOrders";
     }
 
+    /* do method when matching value url */
     @RequestMapping("/my/wishlist")
     public String showWishlist(@ModelAttribute("principal") UserPrincipal principal) {
         return "customerWishlist";

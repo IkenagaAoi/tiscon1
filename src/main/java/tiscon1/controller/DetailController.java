@@ -20,6 +20,7 @@ public class DetailController {
     @Autowired
     GenreRepository genreRepository;
 
+    /* do method when matching value url */
     @RequestMapping(value = {"/detail", "/my/detail"}, method = RequestMethod.GET)
     public String detail(@RequestParam("genreId") String genreId, @RequestParam("subgenreId") String subgenreId, @RequestParam("itemId") String itemId, Model model) {
         model.addAttribute("genreId", genreId);

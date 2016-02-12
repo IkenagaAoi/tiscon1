@@ -15,9 +15,11 @@ public class IndexController {
     private static final String MOVIE_ID = "33";
     private static final String MUSIC_ID = "34";
 
+    /* Wired automatically src/main/java/tiscon1/repository/impl/CategoryRepository.java */
     @Autowired
     CategoryRepository categoryRepository;
 
+    /* do method when matching value url */
     @RequestMapping("/")
     public String index(Model model) {
         try {
@@ -26,6 +28,7 @@ public class IndexController {
         } catch (Exception e) {
             throw new SystemException();
         }
+        /* return String */
         return "index";
     }
 

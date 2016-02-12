@@ -20,6 +20,7 @@ public class CategoryController {
     @Autowired
     GenreRepository genreRepository;
 
+    /* do method when matching value url */
     @RequestMapping(value = {"/category", "/my/category"}, method = RequestMethod.GET)
     public String category(@RequestParam("genreId") String genreId, @RequestParam("subgenreId") String subgenreId, Model model) {
         model.addAttribute("genreId", genreId);
